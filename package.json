@@ -1,0 +1,26 @@
+{
+  "name": "hotel-platform",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "backend",
+    "frontend",
+    "packages/*"
+  ],
+  "scripts": {
+    "postinstall": "npm run build -w packages/contracts",
+    "dev": "npm run dev -w backend",
+    "dev:web": "npm run dev -w frontend",
+    "build": "npm run build -ws --if-present",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck -ws --if-present",
+    "test": "npm run test -ws --if-present",
+    "depcheck": "npm run depcheck -w backend"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
